@@ -1562,13 +1562,6 @@ border-color: #FBA00E;
     height: 60px;
     padding-left: 25%;
 }
-.mobile-search{
-    display: none;
-}
-
-.mobile-search-bar{
-    display: none;
-}
 
 /* Menu vertical perfil usuario */
 
@@ -2203,18 +2196,9 @@ border-color: #FBA00E;
         width: 20%;
     }
 
-    .mobile-search{
-        display: block;
-        border: 1px solid white;
-    }
 
     .search_bar_header{
         display: none;
-    }
-
-    .mobile-search-bar{
-        display: block;
-        color: red;
     }
 
     .user-menu-bar{
