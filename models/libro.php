@@ -99,7 +99,7 @@ class Libro extends Database
     
     public function libroDestacado()
     {
-        $consulta = $this->db->prepare("SELECT * FROM articulo WHERE destacado = 1");
+        $consulta = $this->db->prepare("SELECT * FROM articulo WHERE destacado = 1 and estado = 1");
         $consulta->execute();
         $resultado = $consulta->fetchAll();
         return $resultado;
@@ -107,14 +107,14 @@ class Libro extends Database
 
     public function librosCategoria($id)
     {
-        $consulta = $this->db->prepare("SELECT * FROM articulo WHERE fk_id_genero = $id");
+        $consulta = $this->db->prepare("SELECT * FROM articulo WHERE fk_id_genero = $id and estado = 1");
         $consulta->execute();
         $resultado = $consulta->fetchAll();
         return $resultado;
     }
     public function librosGeneral()
     {
-        $consulta = $this->db->prepare("SELECT * FROM articulo");
+        $consulta = $this->db->prepare("SELECT * FROM articulo and estado = 1");
         $consulta->execute();
         $resultado = $consulta->fetchAll();
         return $resultado;
@@ -122,7 +122,7 @@ class Libro extends Database
 
     public function obtenerBusquedaGeneral($filtro,$contenido)
     {
-        $consulta = $this->db->prepare("SELECT articulo.id_articulo, articulo.fk_id_genero, articulo.isbn, articulo.nombre, articulo.descripcion_short, articulo.descripcion, articulo.stock, articulo.precio_venta, articulo.imagen, articulo.destacado, articulo.estado FROM articulo INNER JOIN generos ON articulo.fk_id_genero = generos.id_genero WHERE $filtro LIKE '%$contenido%'");
+        $consulta = $this->db->prepare("SELECT articulo.id_articulo, articulo.fk_id_genero, articulo.isbn, articulo.nombre, articulo.descripcion_short, articulo.descripcion, articulo.stock, articulo.precio_venta, articulo.imagen, articulo.destacado, articulo.estado FROM articulo INNER JOIN generos ON articulo.fk_id_genero = generos.id_genero WHERE $filtro LIKE '%$contenido%' and estado = 1");
         $consulta->execute();
         $resultado = $consulta->fetchAll();
         return $resultado;
