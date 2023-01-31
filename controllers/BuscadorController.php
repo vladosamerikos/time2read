@@ -38,7 +38,7 @@ class BuscadorController
     public function buscadorGeneral()
     {
         $categoria = new Categoria();
-        $resultado = $categoria->obtenerListado();
+        $resultado = $categoria->obtenerListadoActivos();
         require_once "views/general/mostrarListaCategorias.php";
         
         $filtro = $_POST['filtro'];

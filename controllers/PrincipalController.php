@@ -8,7 +8,7 @@ class PrincipalController
     public function mostrarPaginaPrincipal()
     {
         $categoria = new Categoria();
-        $resultado = $categoria->obtenerListado();
+        $resultado = $categoria->obtenerListadoActivos();
         require_once "views/general/mostrarListaCategorias.php";
         $libro = new Libro();
         $resultado = $libro->libroDestacado();
@@ -19,7 +19,7 @@ class PrincipalController
     public function mostrarLibrosCategoria()
     {
         $categoria = new Categoria();
-        $resultado = $categoria->obtenerListado();
+        $resultado = $categoria->obtenerListadoActivos();
         require_once "views/general/mostrarListaCategorias.php";
         $_idcategoria = $_GET['id'];
         $categoria2 = new Categoria();
@@ -33,7 +33,7 @@ class PrincipalController
     public function mostrarGeneral()
     {
         $categoria = new Categoria();
-        $resultado = $categoria->obtenerListado();
+        $resultado = $categoria->obtenerListadoActivos();
         require_once "views/general/mostrarListaCategorias.php";
         $libros = new Libro();
         $resultado = $libros->librosGeneral();

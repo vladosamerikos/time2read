@@ -69,7 +69,7 @@ class Cesta extends Database
         $consulta->execute();
         $last_id = $this->db->lastInsertId();
         
-        // genera el detalle de la facturay resta el stock
+        // genera el detalle de la factura y resta el stock
         foreach($_SESSION['Cesta'] as $articulo=>$valor){
             if (is_numeric($articulo)){
                 $cantidad = $valor['cant'];
