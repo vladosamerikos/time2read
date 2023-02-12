@@ -9,10 +9,17 @@ class Cesta extends Database
         $limite = $libro->obtenerLimite($id);
         if (isset($_SESSION['Cesta'])){
             if (isset($_SESSION['Cesta'][$id])){
-                $_SESSION['Cesta'][$id]['cant']+=$cant;
-                $_SESSION['Cesta'][$id]['limit']=$limite[0]['stock'];
+                $current =$_SESSION['Cesta'][$id]['cant']+$cant;
+                if($current<=$limite[0]['stock']){
+                    $_SESSION['Cesta'][$id]['cant']+=$cant;
+                    $_SESSION['Cesta'][$id]['limit']=$limite[0]['stock'];
+                }else{
+                    $_SESSION['Cesta'][$id]['cant']=$limite[0]['stock'];
+                    $_SESSION['Cesta'][$id]['limit']=$limite[0]['stock'];
+                }
             }else{
                 $_SESSION['Cesta'][$id]['cant']=$cant;
+                $_SESSION['Cesta'][$id]['limit']=$limite[0]['stock'];
             }
         }else{
             $_SESSION['Cesta'][$id]['cant']=$cant;
