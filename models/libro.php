@@ -128,6 +128,13 @@ class Libro extends Database
         return $resultado;
     }
 
+    public function obtenerLimite($id){
+        $consulta = $this->db->prepare("SELECT stock FROM articulo WHERE id_articulo = $id");
+        $consulta->execute();
+        $resultado = $consulta->fetchAll();
+        return $resultado;
+    }
+
 
     
 }

@@ -36,9 +36,13 @@ class CestaController
 
     public function anadirUnaCant(){
         $_id = $_GET['id'];
-        $cesta = new Cesta();
-        $cesta->anadirUnaCant($_id);
-        header('Location: index.php?controller=Cesta&action=mostrarCesta');
+        if ($_SESSION['Cesta'][$_id]['cant']<$_SESSION['Cesta'][$_id]['limit']){
+            $cesta = new Cesta();
+            $cesta->anadirUnaCant($_id);
+            header('Location: index.php?controller=Cesta&action=mostrarCesta');
+        }else{
+            header('Location: index.php?controller=Cesta&action=mostrarCesta');
+        }
     }
 
     public function eliminarUnaCant(){

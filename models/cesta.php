@@ -5,14 +5,18 @@ class Cesta extends Database
 {
     public function agregarACesta($id, $cant)
     {   
+        $libro = new Libro();
+        $limite = $libro->obtenerLimite($id);
         if (isset($_SESSION['Cesta'])){
             if (isset($_SESSION['Cesta'][$id])){
                 $_SESSION['Cesta'][$id]['cant']+=$cant;
+                $_SESSION['Cesta'][$id]['limit']=$limite[0]['stock'];
             }else{
                 $_SESSION['Cesta'][$id]['cant']=$cant;
             }
         }else{
             $_SESSION['Cesta'][$id]['cant']=$cant;
+            $_SESSION['Cesta'][$id]['limit']=$limite[0]['stock'];
         }     
 
     }
