@@ -1,5 +1,6 @@
 <?php
 require "models/pedidos.php";
+require "models/usuario.php";
 class PedidoController
 {
     public function mostrarPedidos()
@@ -38,9 +39,13 @@ class PedidoController
         if(isset($_SESSION['email']) && $_SESSION['role'] == 'admin'){
             require_once "views/adminPanel/menu.php";
             $pedido = new Pedido();
+            $user = new Usuario();
             $id_pedido = $_GET['id'];
+            $email = $_GET['email'];
+
             $catalogo = $pedido->obtenerDetallePedido($id_pedido);
             $estados = $pedido->obtenerEstados();
+            $datosUser = $user->getProfile($email);
             require_once "views/adminPanel/tablaFacturas.php";
         }
         else{

@@ -36,7 +36,7 @@ foreach ($catalogo as $pedido) {
     echo    "</select>
             <input class='admin-panel-pedido-submit-button' type='image' name='submit' src='./img/upload2.svg' alt='Confirmar'>
         </form></td>
-        <td class='admin-panel-page-table-td-link'><a class='details-comanda-link' href='index.php?controller=Pedido&action=mostrarFacturas&id=". $pedido['id_factura'] . "'>Mostrar detalle</a></td>
+        <td class='admin-panel-page-table-td-link'><a class='details-comanda-link' href='index.php?controller=Pedido&action=mostrarFacturas&id=". $pedido['id_factura'] . "&email=".$pedido['userEmail']."'>Mostrar detalle</a></td>
         </tr>";
 }
 echo "</table>

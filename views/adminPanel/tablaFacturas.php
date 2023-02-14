@@ -5,6 +5,15 @@ echo "
     <h1 class='admin-panel-title'>Pedidos</h1>
     <div class='orange-line'></div>
 </div>";
+echo "
+    <div>
+        <p><b>Nombre:</b> &nbsp&nbsp&nbsp&nbsp&nbsp".$datosUser[0]['nombre']."</p>
+        <p><b>Apellidos:</b> &nbsp&nbsp".$datosUser[0]['apellidos']." </p>
+        <p><b>Direccion:</b> &nbsp&nbsp".$datosUser[0]['direccion']."</p>
+    </div>
+
+
+";
 
 echo "<table class='admin-panel-page-table'>
     <tr>
